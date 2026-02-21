@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Happy Birthday Bublala 💖</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: linear-gradient(to right, #ff9ecf, #ffc3e6);
+  overflow-x: hidden;
+}
+
+button {
+  padding: 15px 30px;
+  font-size: 18px;
+  background: #ff4da6;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 10px;
+  margin: 15px;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  font-size: 35px;
+}
+
+.question-box {
+  display: none;
+  margin-top: 40px;
+}
+
+img {
+  width: 250px;
+  border-radius: 20px;
+  margin-top: 20px;
+}
+
+/* Balloons */
+.balloon {
+  position: absolute;
+  bottom: -150px;
+  width: 50px;
+  height: 70px;
+  background: red;
+  border-radius: 50%;
+  animation: float 6s infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-100vh); }
+}
+</style>
+</head>
+
+<body>
+
+<h1>🎁 Click for Surprise 🎁</h1>
+<button onclick="showPopup()">Open Surprise</button>
+
+<div class="popup" id="popup">
+  <div id="balloons"></div>
+  <div>🎉 Happy Birthday Bubli Channnn 🎉</div>
+  <button onclick="showQuestions()">Continue</button>
+</div>
+
+<div class="question-box" id="questions">
+  <h2>1️⃣ How much Bubu loves Bub?</h2>
+  <button onclick="alert('Infinityyyyyyyyyy (More than how much bubla loves cold coffee 💖)')">
+    Click to know
+  </button>
+
+  <!-- ✅ FIXED SECTION STARTS HERE -->
+  <h2>2️⃣ Who is the cutest boyfriend?</h2>
+  <button onclick="showPhoto()">Click to see</button>
+  <div id="photoBox"></div>
+  <!-- ✅ FIXED SECTION ENDS HERE -->
+
+  <h2>3️⃣ Bubu's Secret Message 💌</h2>
+  <button onclick="alert('You are my safest place, my happiness, my forever my cutu patutu bubli 💞')">
+    Open Secret
+  </button>
+</div>
+
+<script>
+function showPopup() {
+  document.getElementById("popup").style.display = "flex";
+
+  // Create balloons
+  for (let i = 0; i < 10; i++) {
+    let balloon = document.createElement("div");
+    balloon.className = "balloon";
+    balloon.style.left = Math.random() * 100 + "vw";
+    balloon.style.background =
+      ["red","yellow","blue","green","pink"][Math.floor(Math.random()*5)];
+    balloon.style.animationDuration = (4 + Math.random()*3) + "s";
+    document.getElementById("balloons").appendChild(balloon);
+  }
+}
+
+function showQuestions() {
+  document.getElementById("popup").style.display = "none";
+  document.getElementById("questions").style.display = "block";
+}
+
+/* ✅ FIXED FUNCTION */
+function showPhoto() {
+  document.getElementById("photoBox").innerHTML =
+    "<img src='bub.jpg' alt='Cutest Boyfriend'>";
+}
+</script>
+
+</body>
+</html>
